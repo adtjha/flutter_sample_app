@@ -166,8 +166,34 @@ class _MoviesRowState extends State<MoviesRow> {
           Container(
             margin: const EdgeInsets.symmetric(vertical: 5.0),
             height: 200.0,
-            child: ListView(
-              padding: EdgeInsets.symmetric(horizontal: 2.0),
+            child: ListView.builder(
+              itemCount: 10,
+              scrollDirection: Axis.horizontal,
+              itemBuilder: (context, index) {
+                return Container(
+                  margin: EdgeInsets.symmetric(horizontal: 4.0),
+                  width: 120.0,
+                  height: 180.0,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  child: const Image(
+                    image: NetworkImage('https://via.placeholder.com/120x180'),
+                  ),
+                );
+              },
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+
+/**
+ *
+ * padding: EdgeInsets.symmetric(horizontal: 2.0),
               scrollDirection: Axis.horizontal,
               children: [
                 Container(
@@ -225,10 +251,4 @@ class _MoviesRowState extends State<MoviesRow> {
                   ),
                 ),
               ],
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
+ */
